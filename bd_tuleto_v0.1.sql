@@ -27,3 +27,14 @@ CREATE TABLE maquinas (
     nivel_ruido VARCHAR(30),
     fallas_recurrentes VARCHAR(100)
 );
+
+-- Tabla Bitácora de eventos (Auditoría y trazabilidad)
+CREATE TABLE bitacora_eventos (
+  id_evento INT PRIMARY KEY AUTO_INCREMENT,
+  id_usuario INT NOT NULL,
+  rol VARCHAR(30) NOT NULL,
+  accion_realizada VARCHAR(80) NOT NULL,
+  id_ticket_afectado INT NULL,
+  fecha_hora DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  ip_dispositivo VARCHAR(45) NULL
+);
