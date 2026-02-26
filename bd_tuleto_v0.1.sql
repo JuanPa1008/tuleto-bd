@@ -38,3 +38,18 @@ CREATE TABLE bitacora_eventos (
   fecha_hora DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   ip_dispositivo VARCHAR(45) NULL
 );
+
+-- TAREA 9: Mejora IA
+CREATE TABLE IF NOT EXISTS producciones_diarias (
+  id_produccion INT PRIMARY KEY AUTO_INCREMENT,
+  fecha DATE NOT NULL,
+  id_pieza INT NOT NULL,
+  id_empleado INT NULL,
+  cantidad_producida INT NOT NULL,
+
+  CONSTRAINT fk_prod_pieza
+    FOREIGN KEY (id_pieza) REFERENCES piezas(id_pieza),
+
+  CONSTRAINT fk_prod_empleado
+    FOREIGN KEY (id_empleado) REFERENCES empleados(id_empleado)
+);
